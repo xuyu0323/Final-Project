@@ -34,4 +34,10 @@ def Up(screen, void, row, col):
 
 '''choose image randomly'''
 def Chosepicture(path):
-
+    picturename = os.listdir(picture_path)
+    # verify whether there is a picture
+    # the image save path is same as the program path, convenient to get the path
+    # then get the image path
+    if len(picturename) > 0:
+        return os.path.join(picture_path, random.choice(picturename))
+        
