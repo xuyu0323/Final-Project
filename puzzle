@@ -31,7 +31,30 @@ def Up(screen, void, row, col):
         screen[void+col], screen[void] = screen[void], screen[void+col]
         return void + col
 
-
+def Mix(row, col, grid):
+    #Rearrange the blocks
+    screen = []
+    for i in range(grid):
+        screen.append(i)
+    # create a void block in the right corner
+    void = grid - 1
+    screen[void] = -1
+    for i in range(10):
+        direction = random.randint(0, 3)
+        #move to the left
+        if direction == 0:
+            void = Left(screen, void, col)
+        #move to the right
+        elif direction == 1:
+            void = Right(screen, void, col)
+        #move up
+        elif direction == 2:
+            void = Up(screen, void, row, col)
+        #move down
+        elif direction == 3:
+            void = Down(screen, void, col)
+    return screen, void
+    
 '''choose image randomly'''
 def Chosepicture(path):
     picturename = os.listdir(picture_path)
