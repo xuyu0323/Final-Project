@@ -64,3 +64,37 @@ def Chosepicture(path):
     if len(picturename) > 0:
         return os.path.join(picture_path, random.choice(picturename))
         
+        
+'''Game Ending'''
+def Endpart(window, width, height):
+    black = (255,255,255)
+    red = (255, 0, 0)
+    purple = (255,0,255)
+    window.fill(black)
+    #save the fonts and picture into resources
+    fontpath = os.path.join(os.getcwd(), 'resources/font/JDJYZHONG.TTF')
+    #set font size
+    font1 = pygame.font.Font(fontpath, width // 10)
+    font2 = pygame.font.Font(fontpath, width // 20)
+    font3 = pygame.font.Font(fontpath, width // 20)
+    #set colors and 
+    one = font1.render('Game Over', True, purple)
+    two = font2.render('Contratulations!', True, red)
+    three = font3.render('Well Done!', True, red)
+    #Set the location for 
+    #Game Over
+    onerect = one.get_rect()
+    onerect.midtop = (width / 2, height / 10)
+    #Set the location for Congratulations!
+    tworect = two.get_rect()
+    tworect.midtop = (width / 2, height / 2)
+    #Set the location for Well Done!
+    threerect = three.get_rect()
+    threerect.midtop = (width / 2, height / 1.5)
+    #Display the messeages
+    window.blit(one, onerect)
+    window.blit(two, tworect)
+    window.blit(three, threerect)
+    pygame.display.update()
+  
+        
