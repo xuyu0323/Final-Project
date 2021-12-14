@@ -151,5 +151,17 @@ def main():
     picture = pygame.transform.scale(picture, (600, 600))
     picture_rect = picture.get_rect()
     # setup window
+    window = pygame.diplay.set_mode((600, 600))
+    pygame.display.set_caption('PUZZLE GAME')
+    # start up interface
+    size = Startpart(window, picture_rect.eidth, picture_rect.height)
+    assert isinstance(size, int)
+    row, col = size, size
+    grid = size * size
+    # recognize the size of block
+    blockwidth = picture_rect.width // col
+    blockheight = picture_rect.height // row
+    
+    
     
         
