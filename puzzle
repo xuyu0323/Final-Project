@@ -63,4 +63,24 @@ def Chosepicture(path):
     # then get the image path
     if len(picturename) > 0:
         return os.path.join(picture_path, random.choice(picturename))
+    
+# interface at the end of the game
+
+
+# interface at the begining of the game
+
+
+
+# main function
+def main():
+    # initalization
+    pygame.init()
+    clock = pygame.time.Clock()
+    # load image
+    picture_path = os.path.join(os.getcwd(), 'resources/pictures')
+    picture = pygame.image.load(Chosepicture(picture_path))
+    picture = pygame.transform.scale(picture, (600, 600))
+    picture_rect = picture.get_rect()
+    # setup window
+    
         
