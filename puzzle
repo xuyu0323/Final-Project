@@ -85,8 +85,55 @@ def Chosepicture(path):
     # then get the image path
     if len(picturename) > 0:
         return os.path.join(picture_path, random.choice(picturename))
+     
+
+'''interface at the end of the game'''
+def Endpart(window, width, height):
+    black = (255,255,255)
+    red = (255, 0, 0)
+    purple = (255,0,255)
+    window.fill(black)
     
-# interface at the end of the game
+    #save fonts and graph into resources
+    fontpath = os.path.join(os.getcwd(), 'resources/font/JDJYZHONG.TTF')
+    #set the font size
+    font1 = pygame.font.Font(fontpath, width // 10)
+    font2 = pygame.font.Font(fontpath, width // 20)
+    font3 = pygame.font.Font(fontpath, width // 20)
+    
+    #set the color and messages for the interface
+    one = font1.render('You've succeeded!', True, purple)
+    two = font2.render('Congratulations!', True, red)
+    three = font3.render('Well Done!', True, red)
+    
+    #set the location of the wordings at the interface
+    #location for You've succeeded!
+    onerect = one.get_rect()
+    onerect.midtop = (width / 2, height / 10)
+    #location for Congratulations!
+    tworect = two.get_rect()
+    tworect.midtop = (width / 2, height / 2)
+    #location for Well Done!
+    threerect = three.get_rect()
+    threerect.midtop = (width / 2, height / 1.5)
+    
+    #Display the messages
+    window.blit(one, onerect)
+    window.blit(two, tworect)
+    window.blit(three, threerect)
+    pygame.display.update()
+    
+    
+    #See if the game should be ended
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                pygame.quit()
+                sys.exit()
+        pygame.display.update()
 
 
 # interface at the begining of the game
