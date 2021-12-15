@@ -137,6 +137,56 @@ def Endpart(window, width, height):
 
 
 # interface at the begining of the game
+def Startpart(window, width, height):
+    black = (255,255,255)
+    red =(255,0,0)
+    blue = (0,0,255)
+    green = (0,255,255)
+    window.fill(black)
+    
+    # set font size
+    fontpath = os.path.join(os.getcwd(), 'resources/font/JDJYZHONG.TTF')
+    font1 = pygame.font.Font(fontpath, width//10)
+    font2 = pygame.font.Font(fontpath, width//20)
+    
+    # set the color and the messages 
+    one = font1.render('Game Starts!', True, red)
+    two = font2.render('To select the mode, press H or M or L', True, blue)
+    three = font2.render('H-5*5, M-4*4, L-3*3', True, green)
+    
+    # set the location of the messages
+    # set the location for Game Starts!
+    onerect = one.get_rect()
+    onerect.midtop = (width/2, height/10)
+    
+    # set the location for To select the mode, press H or M or L
+    tworect = two.get_rect()
+    tworect.midtop = (width/2, height/2)
+    
+    # set the location for H-5*5, M-4*4, L-3*3
+    threerect = three.get_rect()
+    threerect.midtop = (width/2, height/1.5)
+    
+    # display the messages
+    window.blit(one, onerect)
+    window.blit(two, tworect)
+    window.blit(three, threerect)
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                pygame.quit()
+                sys.exit()
+            elif event.type == pygame.KEYDOWN:
+                if event.key == ord('l'):
+                    return 3
+                elif event.key == ord('m'):
+                    return 4
+                elif event.key == ord('h'):
+                    return 5
+        pygame.display.update()
 
 
 
