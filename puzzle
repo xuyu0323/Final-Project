@@ -25,12 +25,23 @@ import sys
 import random
 import pygame
 
+# check if puzzle worked
+def ifend(screen, size):
+    if isinstance(size, int):
+        grid = size * size
+        for i in range(grid - 1):
+            if screen[i] != i:
+            return False
+        return True
+        
+        
 '''blank block move left'''
 def Right(screen, void, col):
     if void % col == 0:
         return void
     screen[void-1], screen[void] = screen[void], screen[void-1]
     return void - 1
+    
     
 '''blank block move right'''
 def Left(screen, void, col):
