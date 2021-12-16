@@ -102,7 +102,7 @@ def Endpart(window, width, height):
     font3 = pygame.font.Font(fontpath, width // 20)
     
     #set the color and messages for the interface
-    one = font1.render('You've succeeded!', True, purple)
+    one = font1.render("You've succeeded!", True, purple)
     two = font2.render('Congratulations!', True, red)
     three = font3.render('Well Done!', True, red)
     
@@ -246,7 +246,7 @@ def main():
             elif event.type ==pygame.MOUSEBUTTONDOWN and event.button == 1:
                 x, y = pygame.mouse.get_pos()
                 x_pos = x // blockwidth
-                y_pos y // blockheight
+                y_pos = y // blockheight
                 a = x_pos + y_pos * col
                 # move left
                 if a == void + 1:
@@ -268,14 +268,14 @@ def main():
         # refresh the screem
         window.fill((255, 255, 255))
         for i in range(grid):
-            if game_screen[i[ == -1:
+            if game_screen[i] == -1:
                 continue
             x_pos = i // col
             y_pos = i % col
             w = blockwidth
             h = blockheight
             rect = pygame.Rect(y_pos * w, x_pos* h, w, h)
-            place = pygame.Rect((game_screen[i] % col) * w, (game_screen[i] // col* h, w, h)
+            place = pygame.Rect((game_screen[i] % col) * w, (game_screen[i] // col) * h, w, h)
             window.blit(picture, rect, place)
             
         for i in range(col + 1):
