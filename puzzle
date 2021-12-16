@@ -53,18 +53,18 @@ def Left(screen, void, col):
 
 '''blank block move up'''
 def Down(screen, void, col):
-        if void < col:
-            return void
-        screen[void-1], screen[void] = screen[void], screen[void-col]
-        return void - col
+    if void < col:
+        return void
+    screen[void-1], screen[void] = screen[void], screen[void-col]
+    return void - col
         
 
 '''blank block move down'''
 def Up(screen, void, row, col):
-        if void >= (row-1) * col:
-            return void
-        screen[void+col], screen[void] = screen[void], screen[void+col]
-        return void + col
+    if void >= (row-1) * col:
+        return void
+    screen[void+col], screen[void] = screen[void], screen[void+col]
+    return void + col
         
 
 def Mix(row, col, grid):
