@@ -31,7 +31,7 @@ def ifend(screen, size):
         grid = size * size
         for i in range(grid - 1):
             if screen[i] != i:
-            return False
+                return False
         return True
         
         
