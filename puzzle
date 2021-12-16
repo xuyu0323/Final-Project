@@ -57,7 +57,7 @@ def Left(screen, void, col):
 def Down(screen, void, col):
     if void < col:
         return void
-    screen[void - 1], screen[void] = screen[void], screen[void - col]
+    screen[void - col], screen[void] = screen[void], screen[void - col]
     return void - col
 
 
@@ -216,7 +216,7 @@ def main():
     picture = pygame.transform.scale(picture, (600, 600))
     picture_rect = picture.get_rect()
     # setup window
-    window = pygame.diplay.set_mode((600, 600))
+    window = pygame.display.set_mode((600, 600))
     pygame.display.set_caption('PUZZLE GAME')
     # start up interface
     size = Startpart(window, picture_rect.width, picture_rect.height)
@@ -245,7 +245,7 @@ def main():
             # keyboard operation(WASD for up, down, left and right keys)
             elif event.type == pygame.KEYDOWN:
                 # move left
-                if event.type == pygame.K_LEFT or event.key == ord('a'):
+                if event.key == pygame.K_LEFT or event.key == ord('a'):
                     void = Left(game_screen, void, col)
                 # move right
                 elif event.key == pygame.K_RIGHT or event.key == ord('d'):
