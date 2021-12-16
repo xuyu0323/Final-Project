@@ -161,7 +161,7 @@ def Startpart(window, width, height):
     # set font size
     fontpath = os.path.join(os.getcwd(), 'resources/font/JDJYZHONG.TTF')
     font1 = pygame.font.Font(fontpath, width//10)
-    font2 = pygame.font.Font(fontpath, width//20)
+    font2 = pygame.font.Font(fontpath, width//22)
     
     # set the color and the messages 
     one = font1.render('Game Starts!', True, red)
