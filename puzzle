@@ -49,6 +49,7 @@ def Left(screen, void, col):
         return void
     screen[void+1], screen[void] = screen[void], screen[void+1]
     return void + 1
+    
 
 '''blank block move up'''
 def Down(screen, void, col):
@@ -56,6 +57,7 @@ def Down(screen, void, col):
             return void
         screen[void-1], screen[void] = screen[void], screen[void-col]
         return void - col
+        
 
 '''blank block move down'''
 def Up(screen, void, row, col):
@@ -63,6 +65,7 @@ def Up(screen, void, row, col):
             return void
         screen[void+col], screen[void] = screen[void], screen[void+col]
         return void + col
+        
 
 def Mix(row, col, grid):
     #Rearrange the blocks
@@ -198,7 +201,6 @@ def Startpart(window, width, height):
                 elif event.key == ord('h'):
                     return 5
         pygame.display.update()
-
 
 
 # Main function
