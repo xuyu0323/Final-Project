@@ -78,7 +78,7 @@ def Mix(row, col, grid):
     return screen, void
     
 '''choose image randomly'''
-def Chosepicture(path):
+def Chosepicture(picture_path):
     picturename = os.listdir(picture_path)
     # verify whether there is a picture
     # the image save path is same as the program path, convenient to get the path
@@ -204,7 +204,7 @@ def main():
     window = pygame.diplay.set_mode((600, 600))
     pygame.display.set_caption('PUZZLE GAME')
     # start up interface
-    size = Startpart(window, picture_rect.eidth, picture_rect.height)
+    size = Startpart(window, picture_rect.width, picture_rect.height)
     assert isinstance(size, int)
     row, col = size, size
     grid = size * size
@@ -234,7 +234,7 @@ def main():
                     void = Left(game_screen, void, col)
                 # move right
                 elif event.key == pygame.K_RIGHT or event.key == ord('d'):
-                    void = RIght(game_screen, void, col)
+                    void = Right(game_screen, void, col)
                 # move up
                 elif event.key == pygame.K_UP or event.key == ord('w'):
                     void = Up(game_screen, void, row, col)
