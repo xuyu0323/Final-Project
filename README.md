@@ -3,7 +3,7 @@ Software Carpentry final project
 
 Group member: Dake Guo, Yu Xu
 
-This is a project of a puzzle game. The puzzle game is set to three levels, 3*3, 4*4 and 5*5 three mode.
+This is a project of a puzzle game. The puzzle game is set to three levels, 3*3, 4*4, and 5*5 three mode.
 
 # How to use it
 
