@@ -221,44 +221,72 @@ def main():
     while bool:
         # determine whether exit the game
         for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-        elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-            pygame.quit()
-            sys.exit()
-        # keyboard operation(WASD for up, down, left and right keys)
-        elif event.type ==pygame.KEYDOWN:
-            # move left
-            if event.type == pygame.K_LEFT or event.key == ord('a'):
-                void = Left(game_screen, void, col)
-            # move right
-            elif event.key == pygame.K_RIGHT or event.key == ord('d'):
-                void = RIght(game_screen, void, col)
-            # move up
-            elif event.key == pygame.K_UP or event.key == ord('w'):
-                void = Up(game_screen, void, row, col)
-            # move down
-            elif event.key == pygame.K_DOWN or event.key == ord('s'):
-                void = Down(game_screen, void, col)
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                pygame.quit()
+                sys.exit()
+            # keyboard operation(WASD for up, down, left and right keys)
+            elif event.type ==pygame.KEYDOWN:
+                # move left
+                if event.type == pygame.K_LEFT or event.key == ord('a'):
+                    void = Left(game_screen, void, col)
+                # move right
+                elif event.key == pygame.K_RIGHT or event.key == ord('d'):
+                    void = RIght(game_screen, void, col)
+                # move up
+                elif event.key == pygame.K_UP or event.key == ord('w'):
+                    void = Up(game_screen, void, row, col)
+                # move down
+                elif event.key == pygame.K_DOWN or event.key == ord('s'):
+                    void = Down(game_screen, void, col)
         
-        # mouse operation
-        elif event.type ==pygame.MOUSEBUTTONDOWN and event.button == 1:
-            x, y = pygame.mouse.get_pos()
-            x_pos = x // blockwidth
-            y_pos y // blockheight
-            a = x_pos + y_pos * col
-            # move left
-            if a == void + 1:
-                void = Left(game_screen, void, col)
-            # move right
-            elif a == void - 1:
-                void = Right(game_screen, void, col)
-            # move up
-            elif a == void + col :
-                void = Up(game_screen, void, row, col)
-            # move down
-            elif a == void - col:
-                void = Down(game_screen, void, col)
+            # mouse operation
+            elif event.type ==pygame.MOUSEBUTTONDOWN and event.button == 1:
+                x, y = pygame.mouse.get_pos()
+                x_pos = x // blockwidth
+                y_pos y // blockheight
+                a = x_pos + y_pos * col
+                # move left
+                if a == void + 1:
+                    void = Left(game_screen, void, col)
+                # move right
+                elif a == void - 1:
+                    void = Right(game_screen, void, col)
+                # move up
+                elif a == void + col :
+                    void = Up(game_screen, void, row, col)
+                # move down
+                elif a == void - col:
+                    void = Down(game_screen, void, col)
                 
-        # 
+        # verify if the game is end
+        if ifend(game_screen, size):
+            game_screen[void] = grid - 1
+            bool = False
+        # refresh the screem
+        window.fill((255, 255, 255))
+        for i in range(grid):
+            if game_screen[i[ == -1:
+                continue
+            x_pos = i // col
+            y_pos = i % col
+            w = blockwidth
+            h = blockheight
+            rect = pygame.Rect(y_pos * w, x_pos* h, w, h)
+            place = pygame.Rect((game_screen[i] % col) * w, (game_screen[i] // col* h, w, h)
+            window.blit(picture, rect, place)
+            
+        for i in range(col + 1):
+            pygame.draw.line(window, (0, 0, 0), (i * w, 0), (i * w, picture_rect.height))
+        
+        for i in range(row + 1):
+            pygame.draw.line(window, (0, 0, 0), (0, i * h), (picture_rect.width, i * h))
+            
+        pygame.display.update()
+        clock.tick(10)
+        
+    # display the end interface
+    Endpart(window, picture_rect.width, picture_rect.height)
+main()
